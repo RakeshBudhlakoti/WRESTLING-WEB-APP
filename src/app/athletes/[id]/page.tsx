@@ -1,0 +1,236 @@
+"use client";
+
+import { useState, use } from "react";
+import Link from "next/link";
+import { Mail, MapPin, MessageSquare, Star, Play, Heart } from "lucide-react";
+import StoryCard from "@/components/StoryCard";
+
+export default function AthleteDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const [activeTab, setActiveTab] = useState<'about' | 'stories' | 'testimonials'>('about');
+  
+  return (
+    <div className="flex-1 bg-background text-white pb-20">
+      <div className="container mx-auto px-4 mt-12 max-w-5xl">
+        
+        {/* Profile Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-12">
+          <div className="flex flex-col md:flex-row gap-8 items-center md:items-start w-full">
+            <div className="w-40 h-40 rounded-3xl bg-surface-hover overflow-hidden shrink-0 border border-surface">
+              {/* Avatar placeholder */}
+              <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=300&auto=format&fit=crop')] bg-cover bg-center"></div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-5xl font-black tracking-tight mb-2">Marcus Stone</h1>
+              <h2 className="text-sm font-bold text-brand-yellow tracking-widest uppercase mb-4">
+                Varsity Heavyweight • 2x State Qualifier
+              </h2>
+              <div className="flex justify-center md:justify-start gap-3">
+                <SocialIcon icon={
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                } />
+                <SocialIcon icon={
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                } />
+                <SocialIcon icon={
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                } />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center md:justify-end gap-3 w-full md:w-auto shrink-0 mt-4 md:mt-0">
+            <button className="px-6 py-2.5 bg-brand-yellow text-black font-bold rounded-xl hover:bg-yellow-400 transition-colors">
+              Connect with Marcus
+            </button>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex items-center gap-8 border-b border-surface-hover mb-8 overflow-x-auto">
+          <button 
+            onClick={() => setActiveTab('about')}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'about' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+          >
+            About Athlete
+          </button>
+          <button 
+            onClick={() => setActiveTab('stories')}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'stories' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+          >
+            Stories by Marcus
+          </button>
+          <button 
+            onClick={() => setActiveTab('testimonials')}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'testimonials' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+          >
+            Testimonials
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-8">
+            
+            {activeTab === 'about' && (
+              <div className="bg-surface border border-surface-hover rounded-2xl p-8 space-y-8">
+                <section>
+                  <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Journey</h3>
+                  <div className="space-y-4 text-muted text-sm leading-relaxed">
+                    <p>
+                      I started wrestling at the age of 7, inspired by the discipline and mental toughness the sport requires. Over the last decade, I've learned that the mat is where character is built.
+                    </p>
+                    <p>
+                      After a devastating knee injury in my sophomore year, I spent 12 months in rehab, coming back stronger to secure my second state qualification.
+                    </p>
+                    <p>
+                      My goal is to compete at the collegiate level and eventually coach the next generation of NLA wrestlers.
+                    </p>
+                  </div>
+                </section>
+
+                <section>
+                  <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Key Achievements</h3>
+                  <ul className="space-y-2 font-bold text-sm">
+                    <li className="flex items-center gap-2"><span className="text-brand-yellow">🥇</span> 2023 Regional Champion (Heavyweight)</li>
+                    <li className="flex items-center gap-2"><span className="text-brand-yellow">🥇</span> 2022 Most Improved Athlete</li>
+                    <li className="flex items-center gap-2"><span className="text-brand-yellow">🥇</span> 45-6 Career Record</li>
+                  </ul>
+                </section>
+              </div>
+            )}
+
+            {activeTab === 'stories' && (
+              <div className="space-y-6">
+                <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Stories by Marcus</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <StoryCard index={1} />
+                  <StoryCard index={2} />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'testimonials' && (
+              <div className="space-y-8">
+                
+                {/* Submit Testimonial Form */}
+                <div className="bg-surface border border-surface-hover rounded-2xl p-6 md:p-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                  <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4 relative z-10">Write a Testimonial</h3>
+                  <p className="text-muted text-sm mb-6 relative z-10">Share your experience working or competing with Marcus.</p>
+                  
+                  <form className="space-y-4 relative z-10">
+                    <div>
+                      <label className="block text-xs font-bold text-muted mb-2">Your Rating</label>
+                      <div className="flex gap-2">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button key={star} type="button" className="text-surface-hover hover:text-brand-yellow transition-colors">
+                            <Star className="w-6 h-6 fill-current" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-muted mb-2">Your Message</label>
+                      <textarea 
+                        rows={3} 
+                        placeholder="Marcus is an incredible athlete..."
+                        className="w-full px-4 py-3 bg-[#111111] border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow transition-all text-sm resize-y"
+                      ></textarea>
+                    </div>
+                    <div className="pt-2">
+                      <button type="button" className="px-6 py-2.5 bg-brand-yellow text-black font-bold rounded-xl hover:bg-yellow-400 transition-colors text-sm">
+                        Submit Testimonial
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">What Others Say</h3>
+                  
+                  {/* Testimonial 1 */}
+                  <div className="bg-surface border border-surface-hover rounded-2xl p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-hover">
+                        <img src="https://i.pravatar.cc/100?u=coach" alt="Coach Avatar" className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white">Coach Richards</h4>
+                        <div className="flex text-brand-yellow mt-1">
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-zinc-300 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
+                      "Marcus is one of the most disciplined athletes I've ever coached. His return from injury showed the true elite mindset required for this sport. He leads by example every single day."
+                    </p>
+                  </div>
+
+                  {/* Testimonial 2 */}
+                  <div className="bg-surface border border-surface-hover rounded-2xl p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-hover">
+                        <img src="https://i.pravatar.cc/100?u=jake" alt="Teammate Avatar" className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white">Jake Thompson</h4>
+                        <div className="flex text-brand-yellow mt-1">
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 fill-current" />
+                          <Star className="w-3 h-3 text-muted" />
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-zinc-300 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
+                      "Incredible story, Marcus. Your journey really inspired my junior varsity team during the tough mid-season grind. We constantly reference your comeback when things get hard."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-8">
+            <div className="bg-surface border border-surface-hover rounded-2xl p-8 sticky top-8">
+              <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Contact for Inquiries</h3>
+              <p className="text-muted text-sm mb-6">
+                For professional inquiries, sponsorship opportunities, or coaching requests.
+              </p>
+              
+              <div className="space-y-4 mb-8 text-sm font-bold">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-muted" /> contact@marcusstone.com
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-4 h-4 text-muted" /> Chicago, IL
+                </div>
+              </div>
+
+              <button className="w-full py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-white border border-surface-hover flex items-center justify-center gap-2">
+                <MessageSquare className="w-4 h-4" /> Send Direct Message
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function SocialIcon({ icon }: { icon: React.ReactNode }) {
+  return (
+    <button className="w-10 h-10 rounded-full bg-surface-hover border border-surface flex items-center justify-center text-muted hover:text-white hover:bg-zinc-800 transition-colors">
+      {icon}
+    </button>
+  );
+}
