@@ -30,14 +30,14 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex flex-col justify-center border-b border-surface-hover/50 overflow-hidden">
+      <div className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center border-b border-surface-hover/50 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2500&auto=format&fit=crop" alt="Hero background" className="w-full h-full object-cover opacity-50 scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent"></div>
         </div>
         
-        <section className="container mx-auto px-4 relative z-10 py-32">
+        <section className="container mx-auto px-4 relative z-10 py-20 lg:py-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#2A2400] mb-6">
               <span className="text-[10px] font-bold text-brand-yellow uppercase tracking-widest">NICHE SPORTS PLATFORM</span>
@@ -87,7 +87,7 @@ export default function Home() {
       </div>
 
       {/* NLA Exclusive Videos */}
-      <section className="container mx-auto px-4 py-16 pt-24">
+      <section className="container mx-auto px-4 py-12 lg:py-16 lg:pt-24">
         <div className="flex justify-between items-end mb-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight">NLA Exclusive Videos</h2>
