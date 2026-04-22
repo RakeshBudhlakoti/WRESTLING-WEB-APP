@@ -3,6 +3,30 @@ import { Search, Play, Heart } from "lucide-react";
 import StoryCard from "@/components/StoryCard";
 
 export default function Home() {
+  const exclusiveVideos = [
+    {
+      id: '101',
+      title: 'David Taylor',
+      category: 'Wrestling',
+      description: 'David Taylor and I philosophize about the side effects of Penn State dominating college wrestling',
+      youtubeId: 'GkzTXHFekhE'
+    },
+    {
+      id: '102',
+      title: 'Tom Brands',
+      category: 'Wrestling',
+      description: 'Iowa head coach Tom Brands talks about his experience growing up and how parents can mold their children to become the best in wrestling and life',
+      youtubeId: '4oohVOYAjK4'
+    },
+    {
+      id: '103',
+      title: 'Jax Forrest',
+      category: 'Wrestling',
+      description: 'The Phenom is here and how far will he go? Motivated by the power of God this wrestler could change the landscape of American wrestling',
+      youtubeId: 'NTIk0vvjPZs'
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -61,6 +85,45 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      {/* NLA Exclusive Videos */}
+      <section className="container mx-auto px-4 py-16 pt-24">
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight">NLA Exclusive Videos</h2>
+            <p className="text-muted text-sm">Exclusive wrestling and athletic content from our official channel.</p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 px-4 py-2 border-2 border-brand-red text-brand-red rounded-lg text-sm font-bold">
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            Official
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {exclusiveVideos.map((video) => (
+            <div key={video.id} className="bg-surface rounded-2xl overflow-hidden border border-surface-hover group transition-colors hover:border-surface-hover/80 h-full flex flex-col">
+              <Link href={`/stories/${video.id}`} className="block relative h-48 w-full shrink-0 overflow-hidden bg-black">
+                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10 pointer-events-none"></div>
+                <img src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} alt={video.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                  <div className="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:scale-110 transition-transform">
+                    <Play className="w-5 h-5 fill-white text-white ml-1" />
+                  </div>
+                </div>
+              </Link>
+              <Link href={`/stories/${video.id}`} className="p-6 flex flex-col flex-1 block">
+                <span className="text-[10px] font-black text-brand-red uppercase tracking-wider mb-2">NLA EXCLUSIVE</span>
+                <h3 className="text-xl font-black text-white leading-tight mb-3 group-hover:text-brand-red transition-colors">
+                  {video.title}
+                </h3>
+                <p className="text-muted text-xs leading-relaxed line-clamp-3">
+                  {video.description}
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Admin's Top 8 Picks */}
       <section id="admin-picks" className="container mx-auto px-4 py-12 pb-24">

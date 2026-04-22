@@ -9,8 +9,26 @@ export default function StoryDetail({ params }: { params: Promise<{ id: string }
   const [isPlaying, setIsPlaying] = useState(false);
   
   // Dummy data
-  const isVideo = parseInt(id) % 2 === 0;
-  const youtubeId = "dQw4w9WgXcQ"; // Dummy youtube ID
+  const exclusiveVideos = {
+    '101': {
+      title: 'David Taylor',
+      youtubeId: 'GkzTXHFekhE'
+    },
+    '102': {
+      title: 'Tom Brands',
+      youtubeId: '4oohVOYAjK4'
+    },
+    '103': {
+      title: 'Jax Forrest',
+      youtubeId: 'NTIk0vvjPZs'
+    }
+  };
+  
+  const exclusiveMatch = exclusiveVideos[id as keyof typeof exclusiveVideos];
+  
+  const isVideo = exclusiveMatch ? true : parseInt(id) % 2 === 0;
+  const youtubeId = exclusiveMatch ? exclusiveMatch.youtubeId : "dQw4w9WgXcQ";
+  const storyTitle = exclusiveMatch ? exclusiveMatch.title : "The Road to State: Overcoming the Impossible";
 
   
   return (
@@ -68,7 +86,7 @@ export default function StoryDetail({ params }: { params: Promise<{ id: string }
               <span className="text-muted text-sm font-bold">12 min read</span>
             </div>
               <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-tight">
-                The Road to State: Overcoming the Impossible
+                {storyTitle}
               </h1>
               
               <div className="flex items-center justify-between flex-wrap gap-4">
