@@ -12,15 +12,18 @@ export default function StoryDetail({ params }: { params: Promise<{ id: string }
   const exclusiveVideos = {
     '101': {
       title: 'David Taylor',
-      youtubeId: 'GkzTXHFekhE'
+      youtubeId: 'GkzTXHFekhE',
+      description: 'David Taylor and I philosophize about the side effects of Penn State dominating college wrestling'
     },
     '102': {
       title: 'Tom Brands',
-      youtubeId: '4oohVOYAjK4'
+      youtubeId: '4oohVOYAjK4',
+      description: 'Iowa head coach Tom Brands talks about his experience growing up and how parents can mold their children to become the best in wrestling and life'
     },
     '103': {
       title: 'Jax Forrest',
-      youtubeId: 'NTIk0vvjPZs'
+      youtubeId: 'NTIk0vvjPZs',
+      description: 'The Phenom is here and how far will he go? Motivated by the power of God this wrestler could change the landscape of American wrestling'
     }
   };
   
@@ -95,8 +98,8 @@ export default function StoryDetail({ params }: { params: Promise<{ id: string }
                     <img src="https://i.pravatar.cc/150" alt="Author" className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg">Marcus Stone</div>
-                    <div className="text-sm text-brand-yellow">Varsity Heavyweight</div>
+                    <div className="font-bold text-lg">{exclusiveMatch ? "Wesley" : "Marcus Stone"}</div>
+                    <div className="text-sm text-brand-yellow">NLA Official</div>
                   </div>
                 </Link>
 
@@ -119,38 +122,46 @@ export default function StoryDetail({ params }: { params: Promise<{ id: string }
           
           {/* Main Story Text */}
           <div className="lg:col-span-8 space-y-8 text-lg text-zinc-300 leading-relaxed font-medium">
-            <p className="text-xl text-white font-bold leading-relaxed">
-              Wrestling isn't just a sport; it's a life lesson. The moment you step on that mat, you realize it's just you and your opponent. No excuses, no one else to blame.
-            </p>
-            
-            <p>
-              My journey started when I was seven. I was the smallest kid in my class, but I had a fire that no one could put out. I remember my first match vividly – I got pinned in under 30 seconds. Most kids would have quit right there, but something clicked in my head. I wanted to understand why I lost and how I could get better.
-            </p>
-
-            <h2 className="text-2xl font-black text-white mt-12 mb-6">The Devastating Setback</h2>
-            
-            <p>
-              Sophomore year was supposed to be my breakout season. I had trained all summer, attended every camp, and was in the best shape of my life. During a routine practice match in November, I felt a pop in my right knee. A torn ACL and meniscus. Season over.
-            </p>
-
-            <div className="my-10 p-8 border-l-4 border-brand-yellow bg-surface/50 rounded-r-2xl">
-              <p className="text-xl font-bold text-white italic">
-                "The doctor told me I might never wrestle at the same level again. That was the fuel I needed."
+            {exclusiveMatch ? (
+              <p className="text-xl text-white font-bold leading-relaxed border-l-4 border-brand-yellow pl-6">
+                {exclusiveMatch.description}
               </p>
-            </div>
+            ) : (
+              <>
+                <p className="text-xl text-white font-bold leading-relaxed">
+                  Wrestling isn't just a sport; it's a life lesson. The moment you step on that mat, you realize it's just you and your opponent. No excuses, no one else to blame.
+                </p>
+                
+                <p>
+                  My journey started when I was seven. I was the smallest kid in my class, but I had a fire that no one could put out. I remember my first match vividly – I got pinned in under 30 seconds. Most kids would have quit right there, but something clicked in my head. I wanted to understand why I lost and how I could get better.
+                </p>
 
-            <p>
-              Rehab was brutal. Hours of physical therapy, crying in pain just trying to bend my knee past 90 degrees. But every time I wanted to give up, I pictured the state championship podium. I watched film every single day. I studied my opponents. I visualized my return.
-            </p>
+                <h2 className="text-2xl font-black text-white mt-12 mb-6">The Devastating Setback</h2>
+                
+                <p>
+                  Sophomore year was supposed to be my breakout season. I had trained all summer, attended every camp, and was in the best shape of my life. During a routine practice match in November, I felt a pop in my right knee. A torn ACL and meniscus. Season over.
+                </p>
 
-            <h2 className="text-2xl font-black text-white mt-12 mb-6">The Comeback</h2>
-            
-            <p>
-              Junior year. First match back. I was terrified. But the moment the whistle blew, muscle memory took over. I won by tech fall. That season, I went 45-6 and made it to the state tournament. I didn't win it all that year, but stepping onto that mat at the state center was my personal victory. 
-            </p>
-            <p>
-              Now, as a senior, I'm heading back. And this time, I'm not leaving without a medal.
-            </p>
+                <div className="my-10 p-8 border-l-4 border-brand-yellow bg-surface/50 rounded-r-2xl">
+                  <p className="text-xl font-bold text-white italic">
+                    "The doctor told me I might never wrestle at the same level again. That was the fuel I needed."
+                  </p>
+                </div>
+
+                <p>
+                  Rehab was brutal. Hours of physical therapy, crying in pain just trying to bend my knee past 90 degrees. But every time I wanted to give up, I pictured the state championship podium. I watched film every single day. I studied my opponents. I visualized my return.
+                </p>
+
+                <h2 className="text-2xl font-black text-white mt-12 mb-6">The Comeback</h2>
+                
+                <p>
+                  Junior year. First match back. I was terrified. But the moment the whistle blew, muscle memory took over. I won by tech fall. That season, I went 45-6 and made it to the state tournament. I didn't win it all that year, but stepping onto that mat at the state center was my personal victory. 
+                </p>
+                <p>
+                  Now, as a senior, I'm heading back. And this time, I'm not leaving without a medal.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Sidebar / Engagement */}
