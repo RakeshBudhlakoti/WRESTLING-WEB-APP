@@ -3,14 +3,14 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] border-t border-surface-hover/50 pt-16 pb-8">
+    <footer className="bg-gray-50 border-t border-gray-100/50 pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center mb-6">
-              <span className="text-3xl font-black text-brand-yellow tracking-tighter">NLA</span>
-              <span className="text-3xl font-black text-brand-red tracking-tighter ml-1">WRESTLING</span>
+              <span className="text-3xl font-black text-gradient-insta tracking-tighter">NLA</span>
+              <span className="text-3xl font-black text-[#8134AF] tracking-tighter ml-1">WRESTLING</span>
             </Link>
             <p className="text-muted text-sm max-w-sm mb-6 leading-relaxed">
               A centralized hub for the wrestling and athletics community to share journeys, celebrate success, and inspire the next generation of champions.
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-sm">Quick Links</h4>
+            <h4 className="text-gray-900 font-bold mb-6 tracking-wide uppercase text-sm">Quick Links</h4>
             <ul className="space-y-4 text-sm text-muted">
               <li><Link href="/" className="hover:text-brand-yellow transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-brand-yellow transition-colors">About Us</Link></li>
@@ -40,18 +40,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-sm">Contact Us</h4>
+            <h4 className="text-gray-900 font-bold mb-6 tracking-wide uppercase text-sm">Contact Us</h4>
             <ul className="space-y-4 text-sm text-muted">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
                 <span>123 Champion Blvd, Suite 400<br/>Chicago, IL 60601</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-brand-yellow shrink-0" />
+                <Phone className="w-4 h-4 text-brand-blue shrink-0" />
                 <span>+1 (555) 012-3456</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-brand-yellow shrink-0" />
+                <Mail className="w-4 h-4 text-brand-blue shrink-0" />
                 <span>info@nlawrestling.com</span>
               </li>
             </ul>
@@ -59,13 +59,13 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-surface-hover/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-gray-100/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted text-xs">
             © {new Date().getFullYear()} NLA Wrestling. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-gray-900 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

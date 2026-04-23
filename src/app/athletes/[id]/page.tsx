@@ -10,7 +10,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
   const [activeTab, setActiveTab] = useState<'about' | 'stories' | 'testimonials'>('about');
   
   return (
-    <div className="flex-1 bg-background text-white pb-20">
+    <div className="flex-1 bg-background text-gray-900 pb-20">
       <div className="container mx-auto px-4 mt-12 max-w-5xl">
         
         {/* Profile Header */}
@@ -47,22 +47,22 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
         </div>
 
         {/* Tabs */}
-        <div className="flex items-center gap-8 border-b border-surface-hover mb-8 overflow-x-auto">
+        <div className="flex items-center gap-8 border-b border-gray-100 mb-8 overflow-x-auto">
           <button 
             onClick={() => setActiveTab('about')}
-            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'about' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'about' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-gray-900'}`}
           >
             About Athlete
           </button>
           <button 
             onClick={() => setActiveTab('stories')}
-            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'stories' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'stories' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-gray-900'}`}
           >
             Stories by Marcus
           </button>
           <button 
             onClick={() => setActiveTab('testimonials')}
-            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'testimonials' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-white'}`}
+            className={`font-bold text-sm uppercase tracking-wider pb-4 border-b-2 whitespace-nowrap transition-colors ${activeTab === 'testimonials' ? 'text-brand-yellow border-brand-yellow' : 'text-muted border-transparent hover:text-gray-900'}`}
           >
             Testimonials
           </button>
@@ -73,7 +73,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
           <div className="lg:col-span-2 space-y-8">
             
             {activeTab === 'about' && (
-              <div className="bg-surface border border-surface-hover rounded-2xl p-8 space-y-8">
+              <div className="bg-surface border border-gray-100 rounded-2xl p-8 space-y-8">
                 <section>
                   <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Journey</h3>
                   <div className="space-y-4 text-muted text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
               <div className="space-y-8">
                 
                 {/* Submit Testimonial Form */}
-                <div className="bg-surface border border-surface-hover rounded-2xl p-6 md:p-8 relative overflow-hidden">
+                <div className="bg-surface border border-gray-100 rounded-2xl p-6 md:p-8 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
                   <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4 relative z-10">Write a Testimonial</h3>
                   <p className="text-muted text-sm mb-6 relative z-10">Share your experience working or competing with Marcus.</p>
@@ -135,7 +135,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                       <textarea 
                         rows={3} 
                         placeholder="Marcus is an incredible athlete..."
-                        className="w-full px-4 py-3 bg-[#111111] border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow transition-all text-sm resize-y"
+                        className="w-full px-4 py-3 bg-[#111111] border border-gray-100 rounded-xl text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow transition-all text-sm resize-y"
                       ></textarea>
                     </div>
                     <div className="pt-2">
@@ -150,13 +150,13 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                   <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">What Others Say</h3>
                   
                   {/* Testimonial 1 */}
-                  <div className="bg-surface border border-surface-hover rounded-2xl p-6">
+                  <div className="bg-surface border border-gray-100 rounded-2xl p-6">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-hover">
                         <img src="https://i.pravatar.cc/100?u=coach" alt="Coach Avatar" className="w-full h-full object-cover" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-white">Coach Richards</h4>
+                        <h4 className="font-bold text-gray-900">Coach Richards</h4>
                         <div className="flex text-brand-yellow mt-1">
                           <Star className="w-3 h-3 fill-current" />
                           <Star className="w-3 h-3 fill-current" />
@@ -166,19 +166,19 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                         </div>
                       </div>
                     </div>
-                    <p className="text-zinc-300 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
+                    <p className="text-gray-600 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
                       "Marcus is one of the most disciplined athletes I've ever coached. His return from injury showed the true elite mindset required for this sport. He leads by example every single day."
                     </p>
                   </div>
 
                   {/* Testimonial 2 */}
-                  <div className="bg-surface border border-surface-hover rounded-2xl p-6">
+                  <div className="bg-surface border border-gray-100 rounded-2xl p-6">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-hover">
                         <img src="https://i.pravatar.cc/100?u=jake" alt="Teammate Avatar" className="w-full h-full object-cover" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-white">Jake Thompson</h4>
+                        <h4 className="font-bold text-gray-900">Jake Thompson</h4>
                         <div className="flex text-brand-yellow mt-1">
                           <Star className="w-3 h-3 fill-current" />
                           <Star className="w-3 h-3 fill-current" />
@@ -188,7 +188,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                         </div>
                       </div>
                     </div>
-                    <p className="text-zinc-300 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
+                    <p className="text-gray-600 text-sm leading-relaxed italic border-l-2 border-brand-yellow pl-4">
                       "Incredible story, Marcus. Your journey really inspired my junior varsity team during the tough mid-season grind. We constantly reference your comeback when things get hard."
                     </p>
                   </div>
@@ -200,7 +200,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
 
           {/* Sidebar */}
           <div className="space-y-8">
-            <div className="bg-surface border border-surface-hover rounded-2xl p-8 sticky top-8">
+            <div className="bg-surface border border-gray-100 rounded-2xl p-8 sticky top-8">
               <h3 className="text-brand-yellow font-bold uppercase tracking-wider mb-4">Contact for Inquiries</h3>
               <p className="text-muted text-sm mb-6">
                 For professional inquiries, sponsorship opportunities, or coaching requests.
@@ -215,7 +215,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                 </div>
               </div>
 
-              <button className="w-full py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-white border border-surface-hover flex items-center justify-center gap-2">
+              <button className="w-full py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-gray-900 border border-gray-100 flex items-center justify-center gap-2">
                 <MessageSquare className="w-4 h-4" /> Send Direct Message
               </button>
             </div>
@@ -229,7 +229,7 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
 
 function SocialIcon({ icon }: { icon: React.ReactNode }) {
   return (
-    <button className="w-10 h-10 rounded-full bg-surface-hover border border-surface flex items-center justify-center text-muted hover:text-white hover:bg-zinc-800 transition-colors">
+    <button className="w-10 h-10 rounded-full bg-surface-hover border border-surface flex items-center justify-center text-muted hover:text-gray-900 hover:bg-zinc-800 transition-colors">
       {icon}
     </button>
   );

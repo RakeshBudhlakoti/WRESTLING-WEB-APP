@@ -3,7 +3,7 @@ import { Users, Target, Shield, ArrowRight, Activity, Trophy } from "lucide-reac
 
 export default function AboutPage() {
   return (
-    <div className="flex-1 bg-background text-white pb-20">
+    <div className="flex-1 bg-background text-gray-900 pb-20">
       {/* Hero Section */}
       <div className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-yellow/10 rounded-3xl blur-xl group-hover:bg-brand-yellow/20 transition-colors duration-500"></div>
-            <div className="relative bg-surface border border-surface-hover p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center">
+            <div className="relative bg-surface border border-gray-100 p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center">
               <div className="w-16 h-16 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-8">
                 <Target className="w-8 h-8 text-brand-yellow" />
               </div>
@@ -41,10 +41,10 @@ export default function AboutPage() {
           </div>
           
           <div className="relative group">
-            <div className="absolute -inset-4 bg-white/5 rounded-3xl blur-xl group-hover:bg-white/10 transition-colors duration-500"></div>
-            <div className="relative bg-surface border border-surface-hover p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8">
-                <Activity className="w-8 h-8 text-white" />
+            <div className="absolute -inset-4 bg-gray-50 rounded-3xl blur-xl group-hover:bg-gray-100 transition-colors duration-500"></div>
+            <div className="relative bg-surface border border-gray-100 p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center">
+              <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-8">
+                <Activity className="w-8 h-8 text-gray-900" />
               </div>
               <h2 className="text-3xl font-black mb-4">Our Vision</h2>
               <p className="text-muted leading-relaxed">
@@ -56,7 +56,7 @@ export default function AboutPage() {
       </div>
 
       {/* Core Values */}
-      <div className="container mx-auto px-4 py-20 border-t border-surface-hover mt-10">
+      <div className="container mx-auto px-4 py-20 border-t border-gray-100 mt-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black tracking-tight mb-4">Core Values</h2>
           <p className="text-muted max-w-2xl mx-auto">The principles that drive our platform and our community.</p>
@@ -80,8 +80,8 @@ export default function AboutPage() {
               desc: "Just like the athletes we serve, we strive for excellence in our design, technology, and user experience."
             }
           ].map((val, idx) => (
-            <div key={idx} className="bg-surface border border-surface-hover p-8 rounded-2xl hover:border-brand-yellow/50 transition-colors duration-300 text-center flex flex-col items-center">
-              <div className="w-14 h-14 bg-background rounded-full flex items-center justify-center mb-6 shadow-inner border border-surface-hover">
+            <div key={idx} className="bg-surface border border-gray-100 p-8 rounded-2xl hover:border-brand-yellow/50 transition-colors duration-300 text-center flex flex-col items-center">
+              <div className="w-14 h-14 bg-background rounded-full flex items-center justify-center mb-6 shadow-inner border border-gray-100">
                 {val.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{val.title}</h3>
@@ -95,7 +95,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-brand-yellow rounded-3xl p-10 md:p-16 text-center text-black relative overflow-hidden">
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Ready to Share Your Journey?</h2>
@@ -103,10 +103,10 @@ export default function AboutPage() {
               Join thousands of athletes who are inspiring the next generation through their stories of resilience and triumph.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/submit" className="bg-black text-white font-bold px-8 py-4 rounded-xl hover:bg-black/80 transition-colors">
+              <Link href="/submit" className="bg-white text-gray-900 font-bold px-8 py-4 rounded-xl hover:bg-white/80 transition-colors">
                 Submit Your Story
               </Link>
-              <Link href="/stories" className="bg-black/5 text-black border-2 border-black font-bold px-8 py-4 rounded-xl hover:bg-black hover:text-white transition-colors">
+              <Link href="/stories" className="bg-gray-50 text-black border-2 border-black font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-gray-900 transition-colors">
                 Read Stories
               </Link>
             </div>

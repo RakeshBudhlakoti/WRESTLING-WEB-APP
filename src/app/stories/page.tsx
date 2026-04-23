@@ -4,11 +4,11 @@ import StoryCard from "@/components/StoryCard";
 
 export default function StoriesListing() {
   return (
-    <div className="flex-1 bg-background text-white pb-20">
+    <div className="flex-1 bg-background text-gray-900 pb-20">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
           <div>
-            <h1 className="text-5xl font-black tracking-tight text-white mb-2">Explore Stories</h1>
+            <h1 className="text-5xl font-black tracking-tight text-gray-900 mb-2">Explore Stories</h1>
             <p className="text-muted">Discover inspiring journeys from athletes worldwide.</p>
           </div>
           <div className="flex gap-4 w-full md:w-auto">
@@ -17,10 +17,10 @@ export default function StoriesListing() {
               <input 
                 type="text" 
                 placeholder="Search stories..." 
-                className="w-full pl-12 pr-4 py-3 bg-surface border border-surface-hover rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-yellow text-white placeholder-muted"
+                className="w-full pl-12 pr-4 py-3 bg-surface border border-gray-100 rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-yellow text-gray-900 placeholder-muted"
               />
             </div>
-            <button className="flex items-center gap-2 px-6 py-3 bg-surface border border-surface-hover rounded-xl hover:bg-surface-hover transition-colors font-bold text-sm">
+            <button className="flex items-center gap-2 px-6 py-3 bg-surface border border-gray-100 rounded-xl hover:bg-surface-hover transition-colors font-bold text-sm">
               <Filter className="w-4 h-4" /> Filters
             </button>
           </div>
@@ -29,7 +29,7 @@ export default function StoriesListing() {
         {/* Categories / Tags */}
         <div className="flex flex-wrap gap-2 mb-10">
           {['All Categories', 'Wrestling', 'Track & Field', 'Basketball', 'Football', 'Swimming'].map((tag, idx) => (
-            <button key={tag} className={`px-5 py-2 rounded-full text-sm font-bold transition-colors ${idx === 0 ? 'bg-brand-yellow text-black' : 'bg-surface border border-surface-hover text-muted hover:text-white'}`}>
+            <button key={tag} className={`px-5 py-2 rounded-full text-sm font-bold transition-colors ${idx === 0 ? 'bg-brand-yellow text-black' : 'bg-surface border border-gray-100 text-muted hover:text-gray-900'}`}>
               {tag}
             </button>
           ))}
@@ -42,7 +42,7 @@ export default function StoriesListing() {
         </div>
         
         <div className="flex justify-center mt-12">
-          <button className="px-8 py-3.5 bg-surface border border-surface-hover text-white font-bold rounded-xl hover:bg-surface-hover transition-colors">
+          <button className="px-8 py-3.5 bg-surface border border-gray-100 text-gray-900 font-bold rounded-xl hover:bg-surface-hover transition-colors">
             Load More Stories
           </button>
         </div>

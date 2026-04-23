@@ -2,25 +2,25 @@ import React from "react";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="flex-1 bg-background text-white py-20">
+    <div className="flex-1 bg-background text-gray-900 py-20">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
-          <span className="text-white block">PRIVACY</span>
+          <span className="text-gray-900 block">PRIVACY</span>
           <span className="text-brand-yellow block">POLICY</span>
         </h1>
         
-        <div className="bg-surface border border-surface-hover rounded-2xl p-8 md:p-12 space-y-8 text-zinc-300 leading-relaxed text-sm md:text-base">
+        <div className="bg-surface border border-gray-100 rounded-2xl p-8 md:p-12 space-y-8 text-gray-600 leading-relaxed text-sm md:text-base">
           <p>Last updated: April 18, 2026</p>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-wide">1. Information We Collect</h2>
+            <h2 className="text-2xl font-bold text-gray-900 tracking-wide">1. Information We Collect</h2>
             <p>
               At NLA Sports, we collect information that you provide directly to us when you create an account, build your athlete profile, submit stories, or communicate with us. This may include your name, email address, phone number, location, biography, competition history, and media (photos/videos).
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-wide">2. How We Use Your Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 tracking-wide">2. How We Use Your Information</h2>
             <p>
               We use the information we collect to operate, maintain, and provide the features and functionality of the Service. This includes:
             </p>
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-wide">3. Sharing of Your Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 tracking-wide">3. Sharing of Your Information</h2>
             <p>
               We may share your information as follows:
             </p>
@@ -45,14 +45,14 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-wide">4. Data Security</h2>
+            <h2 className="text-2xl font-bold text-gray-900 tracking-wide">4. Data Security</h2>
             <p>
               We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. However, no internet or email transmission is ever fully secure or error-free.
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-wide">5. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 tracking-wide">5. Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:privacy@nlasports.com" className="text-brand-yellow hover:underline">privacy@nlasports.com</a>
             </p>

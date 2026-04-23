@@ -3,46 +3,46 @@ import Link from "next/link";
 export default function Register() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center p-4 bg-background">
-      <div className="w-full max-w-md bg-surface border-x border-surface-hover p-8 md:p-12 space-y-8 min-h-screen md:min-h-0 md:rounded-3xl flex flex-col justify-center">
+      <div className="w-full max-w-md bg-surface border-x border-gray-100 p-8 md:p-12 space-y-8 min-h-screen md:min-h-0 md:rounded-3xl flex flex-col justify-center">
         
         <div className="text-center mb-8">
           <div className="text-4xl font-black text-brand-yellow tracking-tighter mb-8">NLA</div>
-          <h1 className="text-3xl font-bold text-white mb-3">Create Account</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">Create Account</h1>
           <p className="text-muted text-sm">Join the community of athletes and fans.</p>
         </div>
 
         <form className="space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-bold text-white mb-2">First Name</label>
+              <label className="block text-sm font-bold text-gray-900 mb-2">First Name</label>
               <input 
                 type="text" 
-                className="w-full px-4 py-3 bg-surface-hover border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
+                className="w-full px-4 py-3 bg-surface-hover border border-gray-100 rounded-xl text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
                 placeholder="Marcus"
               />
             </div>
             <div>
-              <label className="block text-sm font-bold text-white mb-2">Last Name</label>
+              <label className="block text-sm font-bold text-gray-900 mb-2">Last Name</label>
               <input 
                 type="text" 
-                className="w-full px-4 py-3 bg-surface-hover border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
+                className="w-full px-4 py-3 bg-surface-hover border border-gray-100 rounded-xl text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
                 placeholder="Stone"
               />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-bold text-white mb-2">Email Address</label>
+            <label className="block text-sm font-bold text-gray-900 mb-2">Email Address</label>
             <input 
               type="email" 
-              className="w-full px-4 py-3 bg-surface-hover border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
+              className="w-full px-4 py-3 bg-surface-hover border border-gray-100 rounded-xl text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
               placeholder="coach@nlawrestling.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-bold text-white mb-2">Password</label>
+            <label className="block text-sm font-bold text-gray-900 mb-2">Password</label>
             <input 
               type="password" 
-              className="w-full px-4 py-3 bg-surface-hover border border-surface-hover rounded-xl text-white placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
+              className="w-full px-4 py-3 bg-surface-hover border border-gray-100 rounded-xl text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-yellow focus:border-brand-yellow transition-all"
               placeholder="••••••••"
             />
           </div>
@@ -54,7 +54,7 @@ export default function Register() {
 
         <div className="relative py-4">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-surface-hover"></div>
+            <div className="w-full border-t border-gray-100"></div>
           </div>
           <div className="relative flex justify-center text-xs font-bold tracking-wider">
             <span className="px-4 bg-surface text-muted uppercase">Or continue with</span>
@@ -62,7 +62,7 @@ export default function Register() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <button className="flex items-center justify-center gap-2 py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-white">
+          <button className="flex items-center justify-center gap-2 py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-gray-900">
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -71,7 +71,7 @@ export default function Register() {
             </svg>
             Google
           </button>
-          <button className="flex items-center justify-center gap-2 py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-white">
+          <button className="flex items-center justify-center gap-2 py-3 bg-surface-hover rounded-xl hover:bg-zinc-800 transition-colors font-bold text-gray-900">
             <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>

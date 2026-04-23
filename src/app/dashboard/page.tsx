@@ -3,7 +3,7 @@ import { PlusCircle, Edit, FileText, Heart, Activity } from "lucide-react";
 
 export default function Dashboard() {
   return (
-    <div className="flex-1 bg-background text-white pb-20">
+    <div className="flex-1 bg-background text-gray-900 pb-20">
       <div className="container mx-auto px-4 py-12 max-w-5xl">
         
         {/* Welcome Section */}
@@ -14,7 +14,7 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Stats Cards */}
-          <div className="bg-surface border border-surface-hover rounded-2xl p-6 flex flex-col items-start">
+          <div className="bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col items-start">
             <div className="w-12 h-12 rounded-xl bg-surface-hover flex items-center justify-center mb-4">
               <FileText className="w-6 h-6 text-brand-yellow" />
             </div>
@@ -22,7 +22,7 @@ export default function Dashboard() {
             <div className="text-sm font-bold text-muted uppercase tracking-wider">Total Stories</div>
           </div>
           
-          <div className="bg-surface border border-surface-hover rounded-2xl p-6 flex flex-col items-start">
+          <div className="bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col items-start">
             <div className="w-12 h-12 rounded-xl bg-surface-hover flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-brand-yellow" />
             </div>
@@ -30,7 +30,7 @@ export default function Dashboard() {
             <div className="text-sm font-bold text-muted uppercase tracking-wider">Likes Received</div>
           </div>
           
-          <div className="bg-surface border border-surface-hover rounded-2xl p-6 flex flex-col items-start">
+          <div className="bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col items-start">
             <div className="w-12 h-12 rounded-xl bg-surface-hover flex items-center justify-center mb-4">
               <Activity className="w-6 h-6 text-brand-yellow" />
             </div>
@@ -46,12 +46,12 @@ export default function Dashboard() {
             <PlusCircle className="w-8 h-8" />
             <span className="font-bold">Create Story</span>
           </Link>
-          <Link href="/profile/edit" className="flex flex-col items-center justify-center gap-3 p-6 bg-surface border border-surface-hover rounded-2xl hover:bg-surface-hover transition-transform hover:scale-105">
-            <Edit className="w-8 h-8 text-white" />
+          <Link href="/profile/edit" className="flex flex-col items-center justify-center gap-3 p-6 bg-surface border border-gray-100 rounded-2xl hover:bg-surface-hover transition-transform hover:scale-105">
+            <Edit className="w-8 h-8 text-gray-900" />
             <span className="font-bold">Edit Profile</span>
           </Link>
-          <Link href="/dashboard/stories" className="flex flex-col items-center justify-center gap-3 p-6 bg-surface border border-surface-hover rounded-2xl hover:bg-surface-hover transition-transform hover:scale-105">
-            <FileText className="w-8 h-8 text-white" />
+          <Link href="/dashboard/stories" className="flex flex-col items-center justify-center gap-3 p-6 bg-surface border border-gray-100 rounded-2xl hover:bg-surface-hover transition-transform hover:scale-105">
+            <FileText className="w-8 h-8 text-gray-900" />
             <span className="font-bold">My Stories</span>
           </Link>
           <Link href="/profile" className="flex flex-col items-center justify-center gap-3 p-6 bg-[#1C1C1C] border border-[#333333] rounded-2xl hover:bg-zinc-800 transition-transform hover:scale-105">
@@ -62,15 +62,15 @@ export default function Dashboard() {
 
         {/* Recent Activity (Optional but good UX) */}
         <h2 className="text-2xl font-bold mb-6 tracking-tight">Recent Activity</h2>
-        <div className="bg-surface border border-surface-hover rounded-2xl overflow-hidden">
-          <div className="p-4 border-b border-surface-hover flex items-center justify-between hover:bg-surface-hover transition-colors">
+        <div className="bg-surface border border-gray-100 rounded-2xl overflow-hidden">
+          <div className="p-4 border-b border-gray-100 flex items-center justify-between hover:bg-surface-hover transition-colors">
             <div>
               <div className="font-bold mb-1">Story Approved: "The Road to State"</div>
               <div className="text-xs text-muted">2 hours ago</div>
             </div>
             <Link href="/stories/1" className="text-brand-yellow text-sm font-bold">View</Link>
           </div>
-          <div className="p-4 border-b border-surface-hover flex items-center justify-between hover:bg-surface-hover transition-colors">
+          <div className="p-4 border-b border-gray-100 flex items-center justify-between hover:bg-surface-hover transition-colors">
             <div>
               <div className="font-bold mb-1">New Milestone: 10,000 Likes!</div>
               <div className="text-xs text-muted">1 day ago</div>

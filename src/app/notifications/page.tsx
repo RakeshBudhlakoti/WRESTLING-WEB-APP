@@ -37,27 +37,27 @@ export default function Notifications() {
       case "approved": return <CheckCircle className="w-5 h-5 text-green-500" />;
       case "rejected": return <XCircle className="w-5 h-5 text-red-500" />;
       case "pending": return <Clock className="w-5 h-5 text-brand-yellow" />;
-      default: return <Bell className="w-5 h-5 text-white" />;
+      default: return <Bell className="w-5 h-5 text-gray-900" />;
     }
   };
 
   return (
-    <div className="flex-1 bg-background text-white pb-20">
+    <div className="flex-1 bg-background text-gray-900 pb-20">
       <div className="container mx-auto px-4 mt-12 max-w-3xl">
         
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="w-10 h-10 rounded-full bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors border border-surface-hover">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link href="/dashboard" className="w-10 h-10 rounded-full bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors border border-gray-100">
+              <ArrowLeft className="w-5 h-5 text-gray-900" />
             </Link>
             <h1 className="text-3xl md:text-4xl font-black tracking-tight">Notifications</h1>
           </div>
-          <button className="text-sm font-bold text-muted hover:text-white transition-colors">
+          <button className="text-sm font-bold text-muted hover:text-gray-900 transition-colors">
             Mark all as read
           </button>
         </div>
 
-        <div className="bg-surface border border-surface-hover rounded-3xl overflow-hidden divide-y divide-surface-hover">
+        <div className="bg-surface border border-gray-100 rounded-3xl overflow-hidden divide-y divide-surface-hover">
           {notifications.map((notification) => (
             <Link 
               href={notification.link} 
@@ -69,7 +69,7 @@ export default function Notifications() {
               </div>
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                  <h3 className={`font-bold ${!notification.read ? 'text-white' : 'text-zinc-300'}`}>
+                  <h3 className={`font-bold ${!notification.read ? 'text-gray-900' : 'text-gray-600'}`}>
                     {notification.title}
                   </h3>
                   <span className="text-xs font-bold text-muted whitespace-nowrap">
