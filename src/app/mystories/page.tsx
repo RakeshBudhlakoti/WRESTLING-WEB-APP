@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function ProfileRedirect() {
+export default function MyStoriesRedirect() {
   const router = useRouter();
 
   useEffect(() => {

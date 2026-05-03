@@ -1,155 +1,177 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Search, Play, Heart } from "lucide-react";
+import { Search, Play, Trophy, Users, TrendingUp, ArrowRight } from "lucide-react";
 import StoryCard from "@/components/StoryCard";
+import { SkeletonCardGrid } from "@/components/Skeleton";
+import { fetchApi } from "@/lib/api";
+import { getImageUrl, UPLOAD_FOLDERS } from "@/lib/constants";
 
 export default function Home() {
-  const exclusiveVideos = [
-    {
-      id: '101',
-      title: 'David Taylor',
-      category: 'Wrestling',
-      description: 'David Taylor and I philosophize about the side effects of Penn State dominating college wrestling',
-      youtubeId: 'GkzTXHFekhE'
-    },
-    {
-      id: '102',
-      title: 'Tom Brands',
-      category: 'Wrestling',
-      description: 'Iowa head coach Tom Brands talks about his experience growing up and how parents can mold their children to become the best in wrestling and life',
-      youtubeId: '4oohVOYAjK4'
-    },
-    {
-      id: '103',
-      title: 'Jax Forrest',
-      category: 'Wrestling',
-      description: 'The Phenom is here and how far will he go? Motivated by the power of God this wrestler could change the landscape of American wrestling',
-      youtubeId: 'NTIk0vvjPZs'
-    }
-  ];
+  const [posts, setPosts] = useState<any[]>([]);
+  const [exclusivePosts, setExclusivePosts] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const [recentRes, exclusiveRes] = await Promise.all([
+          fetchApi('/posts?limit=8'),
+          fetchApi('/posts?limit=3&isExclusive=true')
+        ]);
+        setPosts(recentRes.data || []);
+        setExclusivePosts(exclusiveRes.data || []);
+      } catch (error) {
+        console.error("Failed to load posts", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadPosts();
+  }, []);
+
+  const getYouTubeId = (url?: string) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const stripHtml = (html: string) => {
+    return html?.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ') || "";
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <div className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center border-b border-gray-100/50 overflow-hidden">
+      <div className="relative min-h-[50vh] lg:min-h-[75vh] flex flex-col justify-center border-b border-gray-100 overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2500&auto=format&fit=crop" alt="Hero background" className="w-full h-full object-cover opacity-50 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent"></div>
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2500&auto=format&fit=crop" alt="Hero background" className="w-full h-full object-cover opacity-10 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
         </div>
         
-        <section className="container mx-auto px-4 relative z-10 py-20 lg:py-32">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white border border-brand-blue mb-6">
-              <span className="text-[10px] font-bold text-[#8134AF] uppercase tracking-widest">NICHE SPORTS PLATFORM</span>
+        <section className="container mx-auto px-4 relative z-20 py-16 lg:py-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-blue bg-blue-50 mb-8">
+              <span className="text-[10px] font-black text-brand-blue uppercase tracking-widest">GLOBAL ATHLETE HUB</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]">
-              <span className="text-gray-900 block drop-shadow-lg">FUEL YOUR</span>
-              <span className="text-gradient-insta block drop-shadow-lg">PURSUIT</span>
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.8] text-gray-900">
+              FUEL YOUR <br/>
+              <span className="text-gradient-insta">PURSUIT</span>
             </h1>
             
-            <p className="text-lg text-gray-600 max-w-xl mb-10 leading-relaxed drop-shadow-md font-medium">
-              A centralized hub for the wrestling and athletics community to share journeys, celebrate success, and inspire the next generation of champions.
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+              A centralized platform for the wrestling and athletics community to share journeys, celebrate success, and inspire the next generation.
             </p>
             
-            {/* Search Bar */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" />
-                <input 
-                  type="text" 
-                  placeholder="Search athletes, sports, or stories..." 
-                  className="w-full bg-white pl-12 pr-4 py-3.5 rounded-full text-gray-900 placeholder-muted focus:outline-none focus:ring-1 focus:ring-brand-blue border border-gray-200 shadow-sm"
-                />
-                <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand-blue text-white font-bold px-6 rounded-full hover:bg-blue-700 transition-colors text-sm">
-                  Search
-                </button>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-6">
               <Link 
                 href="/stories" 
-                className="px-8 py-3.5 bg-brand-red text-white rounded-xl font-bold hover:bg-red-600 transition-colors shadow-sm text-sm"
+                className="px-10 py-4 bg-brand-red text-white rounded-2xl font-black hover:bg-red-600 transition-all shadow-xl shadow-red-500/20 text-sm uppercase tracking-widest"
               >
                 Explore Stories
               </Link>
               <Link 
-                href="/submit" 
-                className="px-8 py-3.5 bg-white text-gray-900 rounded-xl font-bold hover:bg-gray-50 transition-colors border border-gray-200 shadow-sm text-sm"
+                href="/leaderboard" 
+                className="px-10 py-4 bg-white text-gray-900 border-2 border-gray-100 rounded-2xl font-black hover:bg-gray-50 transition-all text-sm uppercase tracking-widest flex items-center gap-2"
               >
-                Submit Story
+                Top Athletes <Trophy className="w-4 h-4 text-brand-yellow" />
               </Link>
             </div>
           </div>
         </section>
       </div>
 
-      {/* NLA Exclusive Videos */}
-      <section className="container mx-auto px-4 py-12 lg:py-16 lg:pt-24">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-2 tracking-tight">NLA Exclusive Videos</h2>
-            <p className="text-muted text-sm">Exclusive premium content and match highlights directly from NLA Wrestling.</p>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-[#F5EEDC] text-gray-900 rounded-lg text-sm font-bold">
-            ★ NLA Originals
-          </div>
-        </div>
+      <div className="container mx-auto px-4 py-20">
+        {/* Main Content */}
+        <div className="space-y-24">
+          
+          {/* Exclusive Videos */}
+          <section className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <div className="flex justify-between items-end mb-10">
+              <div>
+                <h2 className="text-4xl font-black mb-2 tracking-tighter uppercase">NLA Exclusives</h2>
+                <div className="h-1.5 w-20 bg-brand-red rounded-full" />
+              </div>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {exclusiveVideos.map((video) => (
-            <div key={video.id} className="bg-surface rounded-2xl overflow-hidden border border-gray-100 group transition-colors hover:border-gray-100/80 h-full flex flex-col">
-              <Link href={`/stories/${video.id}`} className="block relative h-48 w-full shrink-0 overflow-hidden bg-white">
-                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10 pointer-events-none"></div>
-                <img src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} alt={video.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center z-20">
-                  <div className="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 fill-gray-900 text-gray-900 ml-1" />
-                  </div>
-                </div>
-              </Link>
-              <Link href={`/stories/${video.id}`} className="p-6 flex flex-col flex-1 block">
-                <span className="text-[10px] font-black text-brand-red uppercase tracking-wider mb-2">NLA EXCLUSIVE</span>
-                <h3 className="text-xl font-black text-gray-900 leading-tight mb-3 group-hover:text-brand-red transition-colors">
-                  {video.title}
-                </h3>
-                <p className="text-muted text-xs leading-relaxed line-clamp-3">
-                  {video.description}
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {isLoading ? (
+                [...Array(3)].map((_, i) => (
+                  <div key={i} className="skeleton h-64 w-full rounded-3xl" />
+                ))
+              ) : exclusivePosts.length === 0 ? (
+                <div className="col-span-3 text-center py-10 text-muted italic">No exclusive content yet.</div>
+              ) : (
+                exclusivePosts.map((video) => {
+                  const ytId = getYouTubeId(video.mediaUrl);
+                  const thumb = ytId 
+                    ? `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg` 
+                    : (getImageUrl(video.mediaUrl, UPLOAD_FOLDERS.POSTS) || "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop");
+
+                  return (
+                    <div key={video.id} className="bg-white border border-gray-100 rounded-3xl overflow-hidden group transition-all hover:shadow-2xl h-full flex flex-col">
+                      <Link href={`/stories/${video.id}`} className="block relative h-52 w-full shrink-0 overflow-hidden bg-gray-100">
+                        <img src={thumb} alt={video.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 flex items-center justify-center z-20">
+                          <div className="w-14 h-14 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg group-hover:bg-brand-red group-hover:text-white transition-all">
+                            <Play className="w-6 h-6 fill-current ml-1" />
+                          </div>
+                        </div>
+                      </Link>
+                      <div className="p-8">
+                        <h3 className="text-2xl font-black leading-tight mb-3 group-hover:text-brand-red transition-colors">
+                          {video.title}
+                        </h3>
+                        <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed">
+                          {stripHtml(video.content)}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </section>
+
+          {/* Inspiring Stories */}
+          <section id="stories" className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
+            <div className="flex justify-between items-end mb-10">
+              <div>
+                <h2 className="text-4xl font-black mb-2 tracking-tighter uppercase">Recent Stories</h2>
+                <div className="h-1.5 w-20 bg-brand-blue rounded-full" />
+              </div>
+              <Link href="/stories" className="group flex items-center gap-2 text-brand-blue font-black text-xs uppercase tracking-widest hover:underline">
+                Explore All <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Admin's Top 8 Picks */}
-      <section id="admin-picks" className="container mx-auto px-4 py-12 pb-24">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">Admin's Top 8 Picks</h2>
-            <p className="text-muted text-sm">Handpicked motivational content featuring the most inspiring journeys.</p>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 px-4 py-2 border border-brand-yellow text-brand-yellow rounded-lg text-sm font-bold">
-            👑 Featured
-          </div>
-        </div>
+            {isLoading ? (
+              <SkeletonCardGrid count={8} />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {posts.map((post, i) => (
+                  <StoryCard key={post.id} post={post} index={i} />
+                ))}
+              </div>
+            )}
+          </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-            <StoryCard key={i} index={i} />
-          ))}
+          {/* Newsletter / CTA */}
+          <section className="bg-zinc-900 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/20 blur-[100px] rounded-full -mr-32 -mt-32"></div>
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">SHARE YOUR STORY</h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10">Join thousands of athletes who are using NLA to document their journey and get noticed by recruiters.</p>
+              <Link href="/submit" className="inline-block bg-brand-yellow text-black font-black px-10 py-4 rounded-2xl text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-yellow-500/20">
+                Get Started Now
+              </Link>
+            </div>
+          </section>
         </div>
-        
-        <div className="flex justify-center">
-          <Link href="/stories" className="px-8 py-4 bg-surface border border-gray-100 text-gray-900 rounded-full font-bold hover:bg-surface-hover transition-colors text-sm flex items-center gap-2">
-            Explore All Stories
-          </Link>
-        </div>
-      </section>
+      </div>
     </div>
   );
 }
-
-

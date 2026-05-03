@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Displaying your athlete profile to the community.</li>
               <li>Publishing your submitted stories and testimonials.</li>
-              <li>Facilitating connections between athletes, coaches, and fans.</li>
+              <li>Facilitating connections between users, coaches, and fans.</li>
               <li>Sending you technical notices, updates, security alerts, and support messages.</li>
             </ul>
           </section>

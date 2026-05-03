@@ -35,7 +35,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-black mb-4">Our Mission</h2>
               <p className="text-muted leading-relaxed">
-                To create a dedicated space where athletes, coaches, and fans can connect, share authentic experiences, and build a lasting legacy for niche sports. We believe every drop of sweat tells a story worth hearing.
+                To create a dedicated space where users, coaches, and fans can connect, share authentic experiences, and build a lasting legacy for niche sports. We believe every drop of sweat tells a story worth hearing.
               </p>
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-black mb-4">Our Vision</h2>
               <p className="text-muted leading-relaxed">
-                A world where the blood, sweat, and tears of niche sports athletes are recognized and celebrated universally. We aim to be the definitive platform that empowers athletes to own their narrative.
+                A world where the blood, sweat, and tears of niche sports users are recognized and celebrated universally. We aim to be the definitive platform that empowers users to own their narrative.
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
             {
               icon: <Users className="w-6 h-6 text-brand-yellow" />,
               title: "Community First",
-              desc: "Everything we build is designed to strengthen the bonds between athletes, mentors, and supporters."
+              desc: "Everything we build is designed to strengthen the bonds between users, mentors, and supporters."
             },
             {
               icon: <Shield className="w-6 h-6 text-brand-yellow" />,
@@ -77,7 +77,7 @@ export default function AboutPage() {
             {
               icon: <Trophy className="w-6 h-6 text-brand-yellow" />,
               title: "Excellence",
-              desc: "Just like the athletes we serve, we strive for excellence in our design, technology, and user experience."
+              desc: "Just like the users we serve, we strive for excellence in our design, technology, and user experience."
             }
           ].map((val, idx) => (
             <div key={idx} className="bg-surface border border-gray-100 p-8 rounded-2xl hover:border-brand-yellow/50 transition-colors duration-300 text-center flex flex-col items-center">
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Ready to Share Your Journey?</h2>
             <p className="text-black/80 font-medium text-lg mb-8 leading-relaxed">
-              Join thousands of athletes who are inspiring the next generation through their stories of resilience and triumph.
+              Join thousands of users who are inspiring the next generation through their stories of resilience and triumph.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/submit" className="bg-white text-gray-900 font-bold px-8 py-4 rounded-xl hover:bg-white/80 transition-colors">
